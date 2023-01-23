@@ -1,0 +1,359 @@
+Funcion nombre y apellido 
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    10     30.8 MiB     30.8 MiB           1   @profile
+    11                                         def leerNombre(nombre):
+    12                                             """
+    13                                             Es una funcion, en la cual valida el ingreso de un nombre
+    14                                             Parametros:
+    15                                             ------------
+    16                                                 nombre: string    
+    17                                             Retorna:
+    18                                             ------------
+    19                                                 nombre : string
+    20                                                     Guradar el valor del nombre ingresado
+    21                                             """
+    22                                             #crea una variable booleana e inicializa con false (falso)
+    23     30.8 MiB      0.0 MiB           1       con=False
+    24     30.8 MiB      0.0 MiB           1       num=0
+    25     30.8 MiB      0.0 MiB           1       nombre=""
+    26                                             #Ciclo acabara al momento que el valor de con cambien  a true
+    27     30.9 MiB      0.0 MiB           2       while con==False :
+    28                                                 #Ingreso del nombre
+    29
+    30     30.9 MiB      0.0 MiB           1           nombre=input(">> ")
+    31                                                 #crear una lista con el nombre ingresado
+    32     30.9 MiB      0.0 MiB           1           lis=list(nombre)
+    33                                                 #Ciclo para conocer el contenido de la lista
+    34     30.9 MiB      0.0 MiB           1           inicio= time.time()
+    35     30.9 MiB      0.0 MiB          13           for i in range(len(lis)):
+    36                                                     #Comparar si la lista contiene letras entre a y z
+    37     30.9 MiB      0.0 MiB          12               if(lis[i].lower()==" " ):
+    38     30.9 MiB      0.0 MiB           1                   num+=1
+    39     30.9 MiB      0.0 MiB          12               if lis[i].lower()>='a' and lis[i].lower()<='z' or lis[i].lower()==" " :
+    40                                                         #cambiar el valor de con a true
+    41     30.9 MiB      0.0 MiB          12                   con=True
+    42                                                     #si contiene numeros o caracteres especiales
+    43                                                     else:
+    44                                                         #cambiamos el valor a false
+    45                                                         con=False
+    46                                             #retorna el nombre con la primera letra mayuscula
+    47     30.9 MiB      0.0 MiB           1       if num!=1:
+    48                                                 print("Dato invalido ingrese de nuevo ")
+    49                                                 leerNombre(nombre)
+    50     30.9 MiB      0.0 MiB           1       fin= time.time()
+    51     30.9 MiB      0.0 MiB           1       return nombre.lower().title(), fin-inicio
+
+fecha De nacimiento
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   111     30.8 MiB     30.8 MiB           1   @profile
+   112                                         def fechasNacimiento(fecha):
+   113                                             """
+   114                                             Valida la fecha de nacimiento la cual debe ser antes del dia presente
+   115                                             Parametros:
+   116                                             ------------
+   117                                                 Fecha: string
+   118                                             Retorna:
+   119                                             ------------
+   120                                                 edad: int
+   121                                                 fecha: string
+   122                                             """
+   123     30.9 MiB      0.1 MiB           1       fecha= datetime.datetime.strptime("2024-1-1",'%Y-%m-%d')
+   124     31.0 MiB      0.0 MiB           2       while fecha>=datetime.datetime.now() :
+   125     31.0 MiB      0.0 MiB           1           fecha=fechas(fecha)
+   126     31.0 MiB      0.0 MiB           1           try:
+   127     31.0 MiB      0.0 MiB           1               inicio= time.time()
+   128                                                     #Validar la fecha con el string ingresado
+   129     31.0 MiB      0.0 MiB           1               fecha= datetime.datetime.strptime(str(fecha)[:10],'%Y-%m-%d')
+   130
+   131                                                 except:
+   132                                                     print("Fecha invalida")
+   133                                             #Calcula la edad de la persona
+   134     31.0 MiB      0.0 MiB           1       edad = relativedelta(datetime.datetime.now(), fecha)
+   135                                             #Retorna la Edad y la fecha de nacimiento
+   136     31.0 MiB      0.0 MiB           1       fin= time.time()
+   137     31.0 MiB      0.0 MiB           1       return(int(edad.years)), str(fecha)[:10], fin-inicio
+
+Correo 
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   346     31.0 MiB     31.0 MiB           1   @profile
+   347                                         def correoValido(correo):
+   348                                             """
+   349                                             Validar el ingreso del correo electronico
+   350                                             Parametros:
+   351                                             ------------
+   352                                                 correo: string
+   353                                             Retorna:
+   354                                             ------------
+   355                                                 correo : string
+   356                                                     Guradar el valor del nombre ingresado
+   357                                             """
+   358                                             #VCreacion de variables
+   359     31.0 MiB      0.0 MiB           1       correo="Jm"
+   360     31.0 MiB      0.0 MiB           1       val=True
+   361                                             #Valida el correo electronico
+   362     31.0 MiB      0.0 MiB           2       while val==True:
+   363     31.0 MiB      0.0 MiB           1           correo=input(">> ")
+   364     31.0 MiB      0.0 MiB           1           inicio= time.time()
+   365     31.0 MiB      0.0 MiB           1           if(correo.find("@")!=-1):
+   366     31.0 MiB      0.0 MiB           1               if(correo[correo.find('@')+1:]=="gmail.com" or correo[correo.find('@')+1:]=="hotmail.com" or correo[correo.find('@')+1:]== "yahoo.es" or correo[correo.find('@')+1:]== "espe.edu.ec"):
+   367                                                         #Llamado a la funcion para leer correo
+   368     31.0 MiB      0.0 MiB           1                   val=leercorreo(correo[:correo.find('@')])
+   369                                             #Retornar correo
+   370     31.0 MiB      0.0 MiB           1       fin= time.time()
+   371     31.0 MiB      0.0 MiB           1       return correo, fin-inicio
+
+historial
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   177     43.0 MiB     43.0 MiB           1   @profile
+   178                                         def buscarHistoria(cedula):
+   179                                             """
+   180                                             Buscar las historias clinicas de un usuario
+   181                                             Parametros:
+   182                                             ------------
+   183                                                 obj= Object
+   184                                                     Contiene los datos de la persona mayor de edad
+   185                                             Retorna:
+   186                                             ------------
+   187                                                 No retorna
+   188                                             """
+   189     43.0 MiB      0.0 MiB           1       inicio=time.time()
+   190                                             #Creao un diccionario
+   191     43.0 MiB      0.0 MiB           1       objetBuscar={}
+   192                                             #Guardar en el diccionario la cedula
+   193     43.0 MiB      0.0 MiB           1       objetBuscar["cedula"]=cedula
+   194                                             #Mostrar la cedula a buscar
+   195     43.0 MiB      0.0 MiB           1       print(cedula)
+   196     43.0 MiB      0.0 MiB           1       try:
+   197                                                 #mostrar las historias clinicas de la colccion con el numero de cedula
+   198     43.0 MiB      0.0 MiB           7           for documento in coleccion2.find(objetBuscar):
+   199                                                     #MNostrar la historia clinica del paciente
+   200     43.0 MiB      0.0 MiB           6               print("--",documento["historia"])
+   201                                             #La excepcion si se demora en recargar los datos de la base de datos
+   202                                             except pymongo.errors.ServerSelectionTimeoutError as errorTiempo:
+   203                                                 #Mostrar la demora de la extraccion de datos
+   204                                                 print("Tiempo extendido "+errorTiempo)
+   205                                             #Excepcion de algu tipo de coneccion
+   206                                             except pymongo.errors.ConnectionFailure as errorConexion:
+   207                                                 #Mostrar la falla de conexion
+   208                                                 print("Fallo a conectar "+ errorConexion)
+   209     43.0 MiB      0.0 MiB           1       fin=time.time()
+   210     43.0 MiB      0.0 MiB           1       return fin-inicio
+
+Lista de pacientes
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    57     42.7 MiB     42.7 MiB           1   @profile
+    58                                         def ListaPacientes():
+    59                                             """
+    60                                             Extrae los pacientes registrados mayor de edad y menor de edad
+    61                                             Parametros:
+    62                                             ------------
+    63                                                 No contiene parametros
+    64                                             Retorna:
+    65                                             ------------
+    66                                                 No retorna
+    67                                             """
+    68                                             #Try except para conocer los errores
+    69     42.7 MiB      0.0 MiB           1       inicio=time.time()
+    70     42.7 MiB      0.0 MiB           1       try:
+    71                                                 #Muestra mensaje para los pacientes mayores de Edad
+    72     42.7 MiB      0.0 MiB           1           print("-----------Pacientes mayores de edad-----------------")
+    73                                                 #Mostrar los documentos de la coleccion clien de la base de datos
+    74     42.8 MiB      0.0 MiB           6           for documento in coleccion.find():
+    75                                                     #Mostrar los datos extraidos de la coleccion
+    76     42.8 MiB      0.0 MiB           5               print(documento["cedula"]," ",documento["nombre"]," ",documento["apellido"])
+    77                                                 #Mostrar mensaje para  los pacientes menor de edad
+    78     42.8 MiB      0.0 MiB           1           print("-----------Pacientes menores de edad-----------------")
+    79                                                 #Mostrar los datos de la coleccio1 la cual tiene datos de la coleccion de menores de edad      
+    80     42.8 MiB      0.0 MiB           5           for documento1 in coleccion1.find():
+    81                                                     #Mostrar los datos extraidos de la coleccion1
+    82     42.8 MiB      0.0 MiB           4               print(documento1["cedula"]," ",documento1["nombre"]," ",documento1["apellido"])
+    83                                             #La excepcion si se demora en recargar los datos de la base de datos
+    84                                             except pymongo.errors.ServerSelectionTimeoutError as errorTiempo:
+    85                                                 #Mostrar la demora de la extraccion de datos
+    86                                                 print("Tiempo extendido "+errorTiempo)
+    87                                             #Excepcion de algu tipo de coneccion
+    88                                             except pymongo.errors.ConnectionFailure as errorConexion:
+    89                                                 #Mostrar la falla de conexion
+    90                                                 print("Fallo a conectar "+ errorConexion)
+    91     42.8 MiB      0.0 MiB           1       fin=time.time()
+    92     42.8 MiB      0.0 MiB           1       return fin-inicio
+
+Feriado 
+Line #    Mem usage    Increment  Occurrences   Line Contents     
+=============================================================     
+    49     30.5 MiB     30.5 MiB           1   @profile
+    50                                         def feriado(annio):
+    51                                             """
+    52                                             Valida la fecha de la proxima cita la cual no debe ser fin de semana y feriados ecuatorianos       
+    53                                             Parametros:
+    54                                             ------------
+    55                                                 annio: string
+    56                                             Retorna:
+    57                                             ------------
+    58                                                 lista: list
+    59                                             """
+    60     30.5 MiB      0.0 MiB           1       lista=[]
+    61                                             #Creando la fecha de primero de enero
+    62     30.6 MiB      0.1 MiB           1       fecha= datetime.datetime.strptime(annio+"-1-1",'%Y-%m-%d')
+    63                                             #Encontrar el dia
+    64     30.6 MiB      0.0 MiB           1       dia=calendar.day_name[fecha.weekday()]
+    65                                             #Verificar si el dia de feriado debe trasladarse
+    66     30.6 MiB      0.0 MiB           1       if(verdia(dia)==True):
+    67     30.6 MiB      0.0 MiB           1           fecha=semana(fecha)
+    68                                             #Se agrega el feriado a la lista
+    69     30.6 MiB      0.0 MiB           1       lista.append(str(fecha)[:10])
+    70                                             #Se calcula el domingo de pascua para encontrar el feeriado de carnaval
+    71     30.6 MiB      0.0 MiB           1       pas=pascua(int(str(fecha)[:4]))
+    72                                             #Calcular primer y segundo dia de carnaval de carnavl
+    73     30.6 MiB      0.0 MiB           1       carnaval=str(datetime.datetime.strptime(str(fecha)[:4]+"-"+pas,'%Y-%m-%d')-datetime.timedelta(days=48))[0:10]
+    74     30.6 MiB      0.0 MiB           1       carnaval2=str(datetime.datetime.strptime(str(fecha)[:4]+"-"+pas,'%Y-%m-%d')-datetime.timedelta(days=47))[0:10]
+    75                                             #Feriado de viernes santo
+    76     30.6 MiB      0.0 MiB           1       vierneSanto=str(datetime.datetime.strptime(str(fecha)[:4]+"-"+pas,'%Y-%m-%d')-datetime.timedelta(days=2))[0:10]
+    77                                             #Se agregan  los dos feriados de carnaval y el viernes santo
+    78     30.6 MiB      0.0 MiB           1       lista.append(carnaval)
+    79     30.6 MiB      0.0 MiB           1       lista.append(carnaval2)
+    80     30.6 MiB      0.0 MiB           1       lista.append(vierneSanto)
+    81                                             #Dia del trabajador
+    82     30.6 MiB      0.0 MiB           1       fecha= datetime.datetime.strptime(annio+"-5-1",'%Y-%m-%d')
+    83     30.6 MiB      0.0 MiB           1       dia=calendar.day_name[fecha.weekday()]
+    84     30.6 MiB      0.0 MiB           1       if(verdia(dia)==True):
+    85                                                 fecha=semana(fecha)
+    86     30.6 MiB      0.0 MiB           1       lista.append(str(fecha)[:10])
+    87                                             #Primer Grito
+    88     30.6 MiB      0.0 MiB           1       fecha= datetime.datetime.strptime(annio+"-8-10",'%Y-%m-%d')
+    89     30.6 MiB      0.0 MiB           1       dia=calendar.day_name[fecha.weekday()]
+    90     30.6 MiB      0.0 MiB           1       if(verdia(dia)==True):
+    91     30.6 MiB      0.0 MiB           1           fecha=semana(fecha)
+    92     30.6 MiB      0.0 MiB           1       lista.append(str(fecha)[:10])
+    93                                             #Independencia de guayaquil
+    94     30.6 MiB      0.0 MiB           1       fecha= datetime.datetime.strptime(annio+"-10-9",'%Y-%m-%d')
+    95     30.6 MiB      0.0 MiB           1       dia=calendar.day_name[fecha.weekday()]
+    96     30.6 MiB      0.0 MiB           1       if(verdia(dia)==True):
+    97                                                 fecha=semana(fecha)
+    98     30.6 MiB      0.0 MiB           1       lista.append(str(fecha)[:10])
+    99                                             #Dia de los difunto
+   100     30.6 MiB      0.0 MiB           1       fecha= datetime.datetime.strptime(annio+"-11-2",'%Y-%m-%d')
+   101     30.6 MiB      0.0 MiB           1       dia=calendar.day_name[fecha.weekday()]
+   102     30.6 MiB      0.0 MiB           1       if(verdia(dia)==True):
+   103     30.6 MiB      0.0 MiB           1           fecha=semana(fecha)
+   104     30.6 MiB      0.0 MiB           1       lista.append(str(fecha)[:10])
+   105                                             #independecia de cuenca
+   106     30.6 MiB      0.0 MiB           1       fecha= datetime.datetime.strptime(annio+"-11-3",'%Y-%m-%d')
+   107     30.6 MiB      0.0 MiB           1       dia=calendar.day_name[fecha.weekday()]
+   108     30.6 MiB      0.0 MiB           1       if(verdia(dia)==True):
+   109                                                 fecha=semana(fecha)
+   110     30.6 MiB      0.0 MiB           1       lista.append(str(fecha)[:10])
+   111                                             #Navidad
+   112     30.6 MiB      0.0 MiB           1       fecha= datetime.datetime.strptime(annio+"-12-25",'%Y-%m-%d')
+   113     30.6 MiB      0.0 MiB           1       dia=calendar.day_name[fecha.weekday()]
+   114     30.6 MiB      0.0 MiB           1       if(verdia(dia)==True):
+   115                                                 fecha=semana(fecha)
+   116     30.6 MiB      0.0 MiB           1       lista.append(str(fecha)[:10])
+   117                                             #Retorna la lista con los feriados del años
+   118     30.6 MiB      0.0 MiB           1       return lista
+Factura
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   129     43.0 MiB     43.0 MiB           1   @profile
+   130                                         def craerFactura(lis):
+   131                                             """
+   132                                             Insertar en la coleccion la factura
+   133                                             Parametros:
+   134                                             ------------
+   135                                                 lis: List
+   136                                                     Contiene los datos de la factura
+   137                                             Retorna:
+   138                                             ------------
+   139                                                 No retorna
+   140                                             """
+   141                                             #Crear un documento con los datos de la lista
+   142     43.0 MiB      0.0 MiB           1       documento={"cedula":str(lis[0]),"nombre":str(lis[1]),"apellido":str(lis[2]),"valor":str(lis[3])}   
+   143                                             #Insertar el documento en la coleccion
+   144     43.0 MiB      0.0 MiB           1       coleccion4.insert_one(documento)
+Descuento
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   407     31.0 MiB     31.0 MiB           1   @profile
+   408                                         def descuentos(valor):
+   409                                             """
+   410                                             Descuentos especiales
+   411                                             Parametros:
+   412                                             ------------
+   413                                                     valor = opcion escogida
+   414                                             Retorna:
+   415                                             ------------
+   416                                                 suma: float
+   417                                                     Valor a cancelar
+   418                                             """
+   419                                             #Inicializa la variable en verdadero
+   420     31.1 MiB      0.0 MiB           1       val=True
+   421                                             #Inicializa la variable
+   422     31.1 MiB      0.0 MiB           1       suma=0
+   423     31.1 MiB      0.0 MiB           2       while val==True:
+   424                                                 #Muestra lo servicio y retorna el valor
+   425     31.1 MiB      0.1 MiB           1           opc=menuServicios()
+   426                                                 #Suma los valores
+   427     31.1 MiB      0.0 MiB           1           inicio=time.time()
+   428     31.1 MiB      0.0 MiB           1           suma=suma+opc
+   429                                                 #Ingresa la opcion de s para continuar con el ingreso de servicios
+   430     31.1 MiB      0.0 MiB           1           res=input("Desea introducir otro servicio s\n salir cualquier letra ")
+   431                                                 #Compara y convierte la letra ingresada a minuscula
+   432     31.1 MiB      0.0 MiB           1           if(res.lower()=='s'):
+   433                                                     #Cambia el  valor
+   434                                                     val=True
+   435                                                 else:
+   436                                                     #Cambia el valor y sale del programa
+   437     31.1 MiB      0.0 MiB           1               val=False
+   438                                             #Comparar el valor del parametro
+   439
+   440     31.1 MiB      0.0 MiB           1       if(valor==1):
+   441                                                 fin=time.time()
+   442                                                 #retorna el total a pagar
+   443                                                 return suma, fin- inicio
+   444     31.1 MiB      0.0 MiB           1       if (valor==2):
+   445     31.1 MiB      0.0 MiB           1           fin=time.time()
+   446                                                 #Retorna con el 10 % de descuento
+   447     31.1 MiB      0.0 MiB           1           suma= suma-(suma*0.1)
+   448     31.1 MiB      0.0 MiB           1       return suma,fin-inicio
+Cita en una fecha
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   212     43.0 MiB     43.0 MiB           1   @profile
+   213                                         def buscarCita(fecha):
+   214                                             """
+   215                                             Buscar las citas  de un dia en especifico
+   216                                             Parametros:
+   217                                             ------------
+   218                                                 obj= Object
+   219                                                     Contiene los datos de la persona mayor de edad
+   220                                             Retorna:
+   221                                             ------------
+   222                                                 No retorna
+   223                                             """
+   224                                             #Creao un diccionario
+   225     43.0 MiB      0.0 MiB           1       inicio=time.time()
+   226     43.0 MiB      0.0 MiB           1       objetBuscar={}
+   227     43.0 MiB      0.0 MiB           1       objetBuscar["fCita"]=fecha
+   228     43.0 MiB      0.0 MiB           1       print(fecha)
+   229     43.0 MiB      0.0 MiB           1       try:
+   230                                                 #mostrar las historias clinicas de la colccion con el numero de cedula
+   231     43.0 MiB      0.0 MiB           5           for documento in coleccion3.find(objetBuscar):
+   232     43.0 MiB      0.0 MiB           4               print(documento["cedula"]," ",documento["nombre"]," ",documento["apellido"])
+   233                                             #La excepcion si se demora en recargar los datos de la base de datos
+   234                                             except pymongo.errors.ServerSelectionTimeoutError as errorTiempo:
+   235                                                 #Mostrar la demora de la extraccion de datos
+   236                                                 print("Tiempo extendido "+errorTiempo)
+   237                                             #Excepcion de algu tipo de coneccion
+   238                                             except pymongo.errors.ConnectionFailure as errorConexion:
+   239                                                 #Mostrar la falla de conexion
+   240                                                 print("Fallo a conectar "+ errorConexion)
+   241     43.0 MiB      0.0 MiB           1       fin=time.time()
+   242     43.0 MiB      0.0 MiB           1       return fin-inicio

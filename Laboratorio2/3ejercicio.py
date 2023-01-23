@@ -11,6 +11,8 @@ VER.0.1
 import datetime
 #Importar la libreria time pra la complejidad del tiempo
 import time
+
+#@profile
 def  leerHora(dato, men):
     """
     Funcion que valida la entrada de la hora 

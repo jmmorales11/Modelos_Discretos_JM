@@ -9,7 +9,9 @@ Jeimy Marley Morales Sosa
 Verision:
 VER.0.1
 """
+import memory_profiler
 import big_o
+#@profile
 def solucion(N):
     """
     Funcion que calcula el grado mayor 

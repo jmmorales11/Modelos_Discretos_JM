@@ -7,6 +7,7 @@ Jeimy Marley Morales Sosa
 Verision:
 VER.0.1
 """
+import big_o
 def leer(nombre):
     """
     Es una funcion, en la cual valida el ingreso de un nombre
@@ -29,7 +30,7 @@ def leer(nombre):
         #Ciclo para conocer el contenido de la lista
         for i in range(len(lis)):
             #Comparar si la lista contiene letras entre a y z
-            if lis[i].lower()>='a' and lis[i].lower()<='z':
+            if lis[i].lower()>='a' and lis[i].lower()<='z' or lis[i].lower()==" ":
                 #cambiar el valor de con a true
                 con=True
             #si contiene numeros o caracteres especiales
@@ -59,3 +60,7 @@ if __name__ == '__main__':
     nombre=leer(nombre)
     #Llama al proceso saludo
     saludo(nombre)
+    string_ejemplo= lambda ejemplo:nombre
+    best, otros= big_o.big_o(saludo,string_ejemplo )
+    #Muestra la complejidad del programa
+    print(best)
